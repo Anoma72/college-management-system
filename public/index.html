@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>College Management System</h1>
+    <p>Student Records & Report Management</p>
+  </header>
+
+  <main class="container">
+    <section class="stats">
+      <div class="card">
+        <h3>Total Students</h3>
+        <p id="totalStudents">0</p>
+      </div>
+      <div class="card">
+        <h3>Departments</h3>
+        <p id="totalDepartments">0</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2 id="formTitle">Add New Student</h2>
+
+      <form id="studentForm">
+        <input type="hidden" id="studentDbId">
+
+        <div class="form-grid">
+          <input id="studentId" placeholder="Student ID (e.g. IT001)" required>
+          <input id="name" placeholder="Full Name" required>
+          <input id="email" type="email" placeholder="Email Address" required>
+
+          <select id="department" required>
+            <option value="">Select Department</option>
+            <option value="IT">Information Technology</option>
+            <option value="Computer">Computer Engineering</option>
+            <option value="ENTC">Electronics & Telecommunication</option>
+            <option value="Mechanical">Mechanical Engineering</option>
+            <option value="Civil">Civil Engineering</option>
+          </select>
+
+          <input id="course" placeholder="Course (e.g. B.Tech)" required>
+
+          <select id="year" required>
+            <option value="">Select Year</option>
+            <option value="1">First Year</option>
+            <option value="2">Second Year</option>
+            <option value="3">Third Year</option>
+            <option value="4">Fourth Year</option>
+          </select>
+        </div>
+
+        <div class="actions">
+          <button type="submit" id="saveButton">Add Student</button>
+          <button type="button" id="cancelButton" class="secondary" hidden>
+            Cancel Edit
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="table-heading">
+        <h2>Student Records</h2>
+        <input id="searchInput" placeholder="Search students...">
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Student ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Department</th>
+              <th>Course</th>
+              <th>Year</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="studentTableBody"></tbody>
+        </table>
+      </div>
+      <p id="emptyMessage">No students added yet.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Department-wise Report</h2>
+      <button id="reportButton" type="button">Generate Report</button>
+      <button id="csvButton" type="button" class="secondary">Export Students to CSV</button>
+      <div id="reportOutput"></div>
+    </section>
+  </main>
+
+  <footer>College Management System | MongoDB Database Project</footer>
+  <script src="script.js"></script>
+</body>
+</html>
